@@ -1,0 +1,14 @@
+<h1>
+  <%= @id %> - <%= @data['data']['title'] %>
+</h1>
+<main>
+  <% if @data['data']['image_id'] %>
+    <%= image_tag('https://www.artic.edu/iiif/2/' + @data['data']['image_id'] + '/full/843,/0/default.jpg') %>
+  <% else %>
+    <!-- Handle case where thumbnail or lqip is not available -->
+    <p>No thumbnail available</p>
+  <% end %>
+</main>
+<p>
+  <%= @data['data']['description'] %>
+</p>

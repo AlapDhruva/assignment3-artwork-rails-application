@@ -1,0 +1,40 @@
+<%= stylesheet_link_tag('index.css') %>
+<div class="container">
+  <header class="d-flex justify-content-center align-items-center center-div">
+    <h1>Art Institute of Chicago</h1>
+  </header>
+  <div class="table-responsive">
+    <table class="table table-striped table-auto">
+      <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>ART</th>
+        <th>DETAIL</th>
+      </tr>
+      <% @searchresult['data'].each do |art| %>
+        <tr>
+          <td>
+            <%= art['id'] %>
+          </td>
+          <td>
+            <%= art['title'] %>
+          </td>
+          <td>
+            <% if art['image_id'] %>
+              <%= image_tag('https://www.artic.edu/iiif/2/' + art['image_id'] + '/full/843,/0/default.jpg', style: 'height:100px; width:100px;') %>
+            <% else %>
+              <p>No image available</p>
+            <% end %>
+          </td>
+          <td>
+            <%#= link_to "View",artwork_details_path(id:art['id']), class:"no-underline" %>
+            <%= link_to artwork_details_path(id: art['id']), class: "btn btn-primary" do %>
+              View
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
