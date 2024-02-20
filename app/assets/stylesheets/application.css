@@ -18,3 +18,8 @@
     text-decoration: none;
     color: inherit;
 }
+
+header {
+    height: 150px;
+    color: #730E15;
+}

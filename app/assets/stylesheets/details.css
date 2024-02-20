@@ -1,0 +1,12 @@
+body {
+    background-color: bisque;
+    text-align: center;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+#margin{
+    margin-top: 6%;
+}

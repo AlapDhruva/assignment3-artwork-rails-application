@@ -1,14 +1,62 @@
-<h1>
-  <%= @id %> - <%= @data['data']['title'] %>
-</h1>
-<main>
-  <% if @data['data']['image_id'] %>
-    <%= image_tag('https://www.artic.edu/iiif/2/' + @data['data']['image_id'] + '/full/843,/0/default.jpg') %>
-  <% else %>
-    <!-- Handle case where thumbnail or lqip is not available -->
-    <p>No thumbnail available</p>
-  <% end %>
-</main>
-<p>
-  <%= @data['data']['description'] %>
-</p>
+<%= stylesheet_link_tag('details.css') %>
+<div class="container">
+  <div class="row" id="margin">
+    <div class="col-sm-3 bold">Title</div>
+    <div class="col-sm-9"><%= @data['data']['title'] %></div>
+  </div>
+
+  <div class="row" id="margin">
+    <div class="col-sm-3 d-flex justify-content-center align-items-center center-div bold">Painting</div>
+    <div class="col-sm-9">
+      <% if @data['data']['image_id'] %>
+        <%= image_tag('https://www.artic.edu/iiif/2/' + @data['data']['image_id'] + '/full/843,/0/default.jpg', class:'img-fluid') %>
+      <% else %>
+        <p>No Art available</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row" id="margin">
+    <div class="col-sm-3 bold">Artist</div>
+    <div class="col-sm-9">
+      <% if @data['data']['artist_display'] %>
+        <%= @data['data']['artist_display'] %>
+      <% else %>
+        <p>Not Available</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row" id="margin">
+    <div class="col-sm-3 bold">Place of Origin</div>
+    <div class="col-sm-9">
+      <% if @data['data']['place_of_origin'] %>
+        <%= @data['data']['place_of_origin'] %>
+      <% else %>
+        <p>Not Available</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row" id="margin">
+    <div class="col-sm-3 bold">Year</div>
+    <div class="col-sm-9">
+      <% if @data['data']['date_display'] %>
+        <%= @data['data']['date_display'] %>
+      <% else %>
+        <p>Not Available</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row" id="margin">
+    <div class="col-sm-3 d-flex justify-content-center align-items-center center-div bold">Description</div>
+    <div class="col-sm-9">
+      <% if @data['data']['description'] %>
+        <%= @data['data']['description'] %>
+      <% else %>
+        <p>No Data Available</p>
+      <% end %>
+    </div>
+  </div>
+</div>
